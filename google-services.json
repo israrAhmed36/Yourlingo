@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "742973776623",
+    "firebase_url": "https://yourlingo-97885.firebaseio.com",
+    "project_id": "yourlingo-97885",
+    "storage_bucket": "yourlingo-97885.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742973776623:android:00ee5666c1efe97564f11a",
+        "android_client_info": {
+          "package_name": "yourlingo.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "742973776623-vmlcnfumtfna6po3ocllk4s1i98usekk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsBdjtEEzkuq5QdKIQm0qPaqBKMB_lHZA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "742973776623-vmlcnfumtfna6po3ocllk4s1i98usekk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

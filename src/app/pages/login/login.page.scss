@@ -1,0 +1,28 @@
+ion-content{
+   
+    --background:linear-gradient(rgba(255, 255, 255, 0.863), rgba(240, 240, 240, 0.87)),
+     url("https://firebasestorage.googleapis.com/v0/b/yourlingo-97885.appspot.com/o/app%2Fbackground.jpg?alt=media&token=5a4f7566-84c3-4480-91ba-ed9385c1563d") no-repeat 100% 100%;
+
+}
+// .scroll-content {
+//     align-content: center;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     text-align: center;
+// }
+
+
+
+
+.imag{
+    margin-top:50px;
+    background-size: contain;
+    img{
+        width:200px;
+        height:200px;
+        margin-left:100px;
+        background-size: contain;
+    }
+   
+}

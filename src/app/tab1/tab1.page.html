@@ -1,0 +1,13 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="navbarColor">
+    <ion-title>
+     YourLingo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="mycard" *ngFor=" let lang of languagelist | async" (click)="nextpage(lang.lang)">
+    <ion-card-header style="text-align: center;">{{lang.lang}}</ion-card-header>
+  </ion-card>
+</ion-content>

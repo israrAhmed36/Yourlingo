@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="navbarColor">
+    <ion-title>chat</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content>
+
+  
+ <ion-list class="message"  *ngFor="let chat of Me" >
+
+    <div class="me" [class]="chat.From == currentuser? 'innerMessage messageRight':'innerMessage messageLeft'">
+      <span style="font-weight: bold;">{{chat.text}}</span> 
+     </div>
+    </ion-list>
+    
+<!-- <ion-grid>
+  <ion-row *ngFor="let chat of Me">
+    <ion-col size="9" *ngIf="chat.From !== currentuser" class="message other-message">
+      <b>{{chat.text}}</b>
+      <div class="time" text-right>
+        {{chat.Date | date: 'short'}}
+      </div>
+    </ion-col>
+
+    <ion-col size="9" *ngIf="chat.From === currentuser" class="message my-message">
+     
+      <b>{{chat.text}}</b>
+      <div class="time" text-right>
+        {{chat.Date | date: 'short'}}
+      </div>
+          </ion-col>
+  </ion-row>
+</ion-grid> -->
+
+  </ion-content>
+  <!-- <ion-footer > 
+    <ion-toolbar class="tool"> 
+      <div id="footer">
+    <div><ion-input placeholder="Type...." [(ngModel)]="text"></ion-input></div> 
+    <div class="elem"> <ion-button (click)="sendmsg()" fill="clear" icon-only slot="end">
+       <ion-icon name="send" slot="end" slot="end"></ion-icon>
+     </ion-button>
+    </div> 
+    </div>
+    </ion-toolbar>  
+  </ion-footer> -->
+  <ion-footer>
+    <ion-toolbar color="light">
+      <ion-row align-items-center no-padding>
+        <ion-col size="10">
+          <textarea maxRows="3" [(ngModel)]="text"  placeholder="Type...." class="message-input"></textarea>
+        </ion-col>
+        <ion-col size="2">
+          <ion-button expand="block" fill="clear" color="primary" [disabled]="text===''" class="msg-btn" (click)="sendmsg()">
+            <ion-icon name="send-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-footer>

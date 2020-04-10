@@ -1,0 +1,161 @@
+<ion-header>
+  <ion-toolbar color="navbarColor" *ngFor="let detail of mydetail">
+    <ion-title>{{detail.fname}}  {{detail.lname}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let detail of mydetail" lines="full">
+   
+    
+    <ion-item lines="none">
+      <ion-grid>
+      <ion-row>
+        <ion-col size="4" ><div>
+          <div *ngIf="!detail.userimage">
+          <img class="myimage" src="https://firebasestorage.googleapis.com/v0/b/yourlingo-97885.appspot.com/o/profile.png?alt=media&token=15fb779a-7822-4943-a067-dba99f917c83">
+        </div>
+        <div *ngIf="detail.userimage">
+          <img class="myimage" [src]="detail.userimage">
+      
+        </div>
+        </div> 
+      </ion-col>
+        <ion-col size="8" >
+          <ion-label class="mylabel">          
+           <p class="name">  {{detail.fname}}  {{detail.lname}}</p>  
+             <p class="service">{{detail.ServiceType}}</p>       
+          </ion-label>
+      
+            
+     
+       
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+     
+     </ion-item>
+  <ion-item *ngIf="Nonprof">
+    <ion-row>
+      <ion-col >
+        <ion-label class="para">Per Hour</ion-label>
+        <ion-label style="color:lightseagreen;font-weight: bold;">{{hour}}</ion-label>
+      
+      </ion-col>
+     
+      <ion-col>
+        <ion-label class="para">Translations</ion-label>
+        <ion-label style="color:lightseagreen;font-weight: bold;font-size: medium;padding-left:30px;">{{detail.Translations}}</ion-label>
+      
+      </ion-col>
+    </ion-row>
+  </ion-item>
+   
+</ion-list>
+
+
+<div *ngIf="prof">
+<div padding>
+  <ion-segment [(ngModel)]="type" class="Segment" >
+    <ion-segment-button class="segbtn" value="Overview" (click)="aboutme()">
+   Overview 
+    </ion-segment-button>
+    <ion-segment-button class="segbtn" value="Languages">
+     Languages 
+      </ion-segment-button>
+      <ion-segment-button class="segbtn" value="Documents">
+         Documents Price
+       </ion-segment-button>
+    
+  </ion-segment>
+</div>
+<div [ngSwitch]="type">
+  <div *ngSwitchCase="'Overview'">
+    <div *ngIf="about ==''">
+      <ion-label style="padding-left:20px;font-family: Arial, Helvetica, sans-serif;;font-size: large;">
+ABOUT ME
+     </ion-label>
+    </div>
+    <div *ngIf="about !=''">
+    <div *ngFor="let pen of about">
+      
+        {{pen.about}}
+      </div>
+ 
+    </div>
+    </div>
+
+    <div *ngSwitchCase="'Languages'">
+      <ion-item *ngFor="let lang of mydetail">
+        <p class="lang">{{lang.Languages}}</p>
+      </ion-item>
+    </div>
+
+    <div *ngSwitchCase="'Documents'">
+      <div *ngIf="!document">
+        <ion-label style="padding-left:20px;font-family: Arial, Helvetica, sans-serif;font-size: large;">
+          NO DOCUMENTS ADDED
+        </ion-label>
+      </div>
+      <div *ngIf="document">
+      <ion-list lines="full"  *ngFor="let d of document">
+      <ion-item class="myitem">
+       <ion-label style="font-size: medium;">{{d.name}}</ion-label>
+       <ion-label style="font-size: medium;">{{d.price}} BD</ion-label>
+       </ion-item>
+       <ion-button shape="round" expand="full" style="height: 20px;" color="theme" (click)="doc(d.name,d.price)">Translate</ion-button>   
+      
+     
+    </ion-list>
+  </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="Nonprof">
+  <div padding>
+    <ion-segment [(ngModel)]="type" class="Segment" >
+      <ion-segment-button class="segbtn" value="Overview" (click)="aboutme()">
+     Overview 
+      </ion-segment-button>
+      <ion-segment-button class="segbtn" value="Languages">
+       Languages 
+        </ion-segment-button>     
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="type">
+    <div *ngSwitchCase="'Overview'">
+      <div *ngIf="about ==''">
+        <ion-label style="padding-left:20px;font-family: Arial, Helvetica, sans-serif;;font-size: large;">
+  ABOUT ME
+       </ion-label>
+      </div>
+      <div *ngIf="about !=''">
+      <div *ngFor="let pen of about">
+        
+          {{pen.about}}
+        </div>
+   
+      </div>
+      </div>
+  
+      <div *ngSwitchCase="'Languages'">
+        <ion-item *ngFor="let lang of mydetail">
+          <p class="lang">{{lang.Languages}}</p>
+        </ion-item>
+      </div>
+  
+</div>
+</div>
+</ion-content>
+
+<ion-footer>
+  <div>
+    <ion-button expand="full" shape="round" color="theme" (click)="chatwith()" *ngIf="!exist">Chat</ion-button>
+  </div>
+ 
+</ion-footer>

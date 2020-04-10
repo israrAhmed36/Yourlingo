@@ -1,0 +1,123 @@
+.innerMessage {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #1E90FF;
+    margin: 5px;
+    color: white;
+    border-radius: 3px;
+}
+.innerMessage.messageRight {
+    background-color: #3CB371;
+}
+.username {
+    font-weight: bold;
+    font-size: 80%;
+}
+.message {
+    font-size: 120%;
+}
+// .elem button {
+//     border-radius: 0;
+//     margin: 0;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+// }
+// .elem {
+//     position: relative;
+//     min-width: 50px;
+// }
+div#footer div.elem:first-child {
+    flex-grow: 1;
+}
+div#footer {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+ion-input{
+   
+    font-size: 125%;
+    color:black;
+}
+.tool {
+    margin: 0;
+    padding: 0!important;
+}
+.message:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.messageLeft {
+    float: left;
+}
+.messageRight {
+    float: right;
+}
+
+.message.special .innerMessage .messageContent{
+    background: white;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.message.special .innerMessage:before{
+    content: '';
+    height: 2px;
+    background: #eee;
+    display: block;
+    top: 50%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.message.special .innerMessage{
+    background: transparent;
+    color: black;
+    font-size: 80%;
+    width: 100%;
+    float: none;
+    text-align: center;
+    position: relative;
+}
+// .message{
+// padding:10px;
+// border-radius: 10px;
+// margin-bottom: 4px;
+// white-space: pre-wrap;
+// }
+// .other-message{
+// background: var(--ion-color-tertiary);
+// color:#fff;
+// float:left;
+// }
+// .my-message{
+//     background: var(--ion-color-secondary);
+//     color:#fff;
+//     float: right;
+// }
+// .time{
+// float: right;
+// color:#dfdfdf;
+// font-size: small;
+// }
+.msg-btn{
+    --padding-start:0.5em;
+    --padding-end:0.5em;
+    }
+    .message-input{
+        color:black;
+        width: 100%;
+        border:1px solid var(--ion-color-medium);
+        border-radius: 10px;
+        background:#fff;
+        resize: none;
+        padding-left: 10px;
+        padding-right: 10px;
+    }

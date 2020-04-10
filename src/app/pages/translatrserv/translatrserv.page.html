@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar color="navbarColor">
+    <ion-title>Translate Document</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  
+  <div *ngIf="prof">
+  <div class="mylist" *ngFor="let d of document" >
+    <ion-item  lines="none">
+      <ion-label>Booked By: {{d.firstname}} {{d.lastname}}</ion-label>
+    </ion-item>
+<ion-item lines="none">
+  <ion-label>Document: {{d.Document}}</ion-label>
+</ion-item>
+<ion-item lines="none">
+  <ion-label>Document Discreption: {{d.Description}}</ion-label>
+</ion-item>
+<ion-item lines="none">
+  <ion-label>Submitted On: {{d.SubmitOn | date:'short'}}</ion-label>
+</ion-item>
+<ion-item lines="none">
+  <ion-label>Number Of pages: {{d.NoPages}}</ion-label>
+</ion-item>
+<ion-item lines="none">
+  <ion-label>Total Price: {{d.totalPrice}}</ion-label>
+</ion-item>
+
+ 
+    <ion-button  (click)="AcceptDoc(d.docId)" expand="full" shape="round" >Accept</ion-button>
+    <ion-button  (click)="RejectDoc(d.docId)" expand="full" shape="round" color="danger">Reject</ion-button>
+  
+</div>
+</div>
+
+
+
+<div *ngIf="non">
+  <ion-card  class="mycard" *ngFor="let d of document" >
+    <ion-item lines="none">
+      <ion-label class="a">Document Status</ion-label>
+      <ion-label class="b">{{d.Status}}</ion-label>
+    </ion-item>
+    <ion-item  lines="none">
+      <ion-label class="a">Booked By</ion-label>
+      <ion-label class="b"> {{d.firstname}} {{d.lastname}}</ion-label>
+    </ion-item>
+    <ion-item  lines="none">
+      <ion-label class="a">Booked With </ion-label>
+      <ion-label class="b"> {{d.tfname}} {{d.tlname}}</ion-label>
+    </ion-item>
+<ion-item lines="none">
+  <ion-label class="a">Document</ion-label>
+  <ion-label class="b"> {{d.Document}}</ion-label>
+</ion-item>
+<ion-item lines="none">
+  <ion-label class="a">Description</ion-label>
+  <ion-label class="b">{{d.Description}}</ion-label>
+</ion-item>
+<ion-item lines="none">
+  <ion-label class="a">Submitted On </ion-label>
+  <ion-label class="b"> {{d.SubmitOn | date:'short'}}</ion-label>
+</ion-item>
+<ion-item lines="none">
+  <ion-label class="a">Number Of pages</ion-label>
+  <ion-label class="b"> {{d.NoPages}}</ion-label>
+</ion-item>
+<ion-item lines="none">
+  <ion-label class="a">Total Price</ion-label>
+  <ion-label class="b"> {{d.totalPrice}}</ion-label>
+</ion-item>
+
+  </ion-card>
+</div>
+</ion-content>

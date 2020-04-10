@@ -1,0 +1,59 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="background" padding>
+  <div class="imag">
+    <img  src="https://firebasestorage.googleapis.com/v0/b/yourlingo-97885.appspot.com/o/app%2F1584335288951.png?alt=media&token=333bdbc9-d0f3-4356-aeeb-e1e235d8dea1">
+  </div>
+  
+  <ion-card class="mycard" > 
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">  Login Form</ion-card-title>
+    
+    </ion-card-header>
+<ion-card-content>
+<ion-list>
+
+    <ion-item class="mitem">     
+      <ion-input position="stacked" type="text" placeholder="Enter Email address" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input position="stacked" type="password" placeholder="Enter password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+  
+    <ion-button  class="login" expand="full" shape="round" (click)="loginUser()">LOGIN</ion-button>
+	<ion-button  expand="full" shape="round" color="theme" (click)="register()">REGISTER</ion-button>
+	<div>
+		<ion-button fill="outline" icon-only>Forget password</ion-button>
+	</div>
+  </ion-list>
+  </ion-card-content>
+  </ion-card>
+
+</ion-content>
+<!-- <ion-content class="background">
+	<ion-card>
+		<ion-card-header>
+			Login Form
+		</ion-card-header>
+		<ion-card-content>
+			<ion-list no-line>
+				<ion-item>
+					<ion-input type="text" placeholder="Username"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-input type="password" placeholder="Password"></ion-input>
+				</ion-item>
+				<a>Forgot your login detail? <b>Get help signing in</b></a>
+				<ion-button ion-button block outline color="light">Log in</ion-button>
+				<p>OR</p>
+				<ion-button ion-button block color="facebook">
+					<ion-icon name="logo-facebook"></ion-icon> Login with facebook
+				</ion-button>
+			</ion-list>
+		</ion-card-content>
+	</ion-card>
+	<ion-button class="bottom" clear full color="light">Don't have an account? Sign up</ion-button>
+</ion-content> -->

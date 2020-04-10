@@ -1,0 +1,40 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+.Segment {
+    
+  height: 44px;
+ 
+}
+.segbtn{
+
+color:black;
+
+
+
+}
+.segment-button-checked{
+  background-color: lightseagreen;
+ color:white;
+ border-radius: 30px;
+ border:0.5px solid;
+ height: 30px;
+min-height: 32px;
+margin-top:7px;
+  
+}
+.contain{
+  padding-left: 160px;
+  padding-top:180px;
+  ion-icon{
+    color:lightseagreen;
+    height:100px;
+    width:100px;
+    text-align: center;
+  }
+}
+.mylabel{
+  font-weight: bolder;
+  font-size: larger;  
+  padding-left: 150px;
+}

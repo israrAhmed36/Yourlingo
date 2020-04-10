@@ -1,0 +1,8 @@
+{
+  "name": "yourlingoo",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

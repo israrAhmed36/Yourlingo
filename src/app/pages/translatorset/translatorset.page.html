@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar color="navbarColor">
+    <ion-title>Translator Setting</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list lines="full" *ngIf="Prof">
+    <ion-item detail (click)="languages()">
+      <ion-row>
+        <ion-col>
+         <ion-label  class="mylabel"> Languages </ion-label> 
+         <p class="para">Includes the languages you can translate</p>
+        </ion-col>
+      </ion-row>
+     </ion-item>
+  
+   
+   
+      <ion-item (click)="opendoc()" detail>
+        <ion-row>
+          <ion-col>
+             <ion-label  class="mylabel">Documents and Price</ion-label>
+             <p class="para">Types of documents and price per document</p>
+          </ion-col>
+        </ion-row>
+       </ion-item>
+  
+    <ion-item detail [routerLink]="'/about-me'" routerDirection="forward">
+      <ion-row>
+     <ion-col>
+       <ion-label  class="mylabel" >About Me</ion-label> 
+       <p class="para">Personalize your profile with a description about yourself</p> 
+      </ion-col>   
+      </ion-row>          
+    </ion-item>
+  </ion-list>
+
+<ion-list *ngIf="NonProf">
+  <ion-item detail>
+    <ion-row>
+      <ion-col>
+       <ion-label  class="mylabel"> Languages </ion-label> 
+       <p class="para">Includes the languages you can translate</p>
+      </ion-col>
+    </ion-row>
+   </ion-item>
+
+  <ion-item detail (click)="myrates()">    
+    <ion-row>
+   <ion-col>
+     <ion-label  class="mylabel">Hourly Rates</ion-label> 
+     <p class="para">Set your rates per hour</p> 
+    </ion-col>   
+    </ion-row>          
+  </ion-item>
+
+  <ion-item>
+    <ion-icon slot="end" name="create-outline" (click)="available()"></ion-icon>
+    <ion-row>
+   <ion-col>
+     <ion-label  class="mylabel">Availability</ion-label> 
+     <p class="para">Set your time range where you will be available</p> 
+    </ion-col>   
+    </ion-row>          
+  </ion-item>
+  <ion-item detail [routerLink]="'/about-me'" routerDirection="forward">
+    <ion-row>
+   <ion-col>
+     <ion-label  class="mylabel" >About Me</ion-label> 
+     <p class="para">Personalize your profile with a description about yourself</p> 
+    </ion-col>   
+    </ion-row>          
+  </ion-item>
+</ion-list>
+ 
+
+</ion-content>

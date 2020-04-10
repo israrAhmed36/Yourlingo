@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="navbarColor" style="color: white;">
+    <ion-title style="text-align: center;">{{getvalue}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding" scroll-y="false">  
+      <ion-item color="danger" class="myitem" value="prof" button (click)="Professional()" detail>     
+        <ion-label>
+          PROFESSIONAL
+        </ion-label>
+      </ion-item>
+   
+      <ion-item class="myitem" color="newColor" value="nonprof" button (click)="Nonprofessional()"  detail>
+        <ion-label>
+         NON PROFESSIONAL
+        </ion-label>
+      </ion-item>
+</ion-content>

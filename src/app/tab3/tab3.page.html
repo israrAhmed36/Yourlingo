@@ -1,0 +1,183 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="navbarColor">
+    <ion-title>
+      Booking
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div padding *ngIf="can">
+    <ion-segment [(ngModel)]="type" class="Segment">
+      <ion-segment-button class="segbtn" value="PENDING">
+        UPCOMING
+      </ion-segment-button>
+      <ion-segment-button class="segbtn" value="TRANSLATED">
+        TRANSLATED
+      </ion-segment-button>
+      <ion-segment-button class="segbtn" value="REJECTED">
+        REJECTED
+      </ion-segment-button>
+
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="type" *ngIf="can">
+    <div *ngSwitchCase="'PENDING'">
+      <div *ngIf="upcoming==''">
+        <div class="contain">
+          <ion-icon name="calendar-outline"></ion-icon>
+        </div>
+        <ion-label class="mylabel">No Documents</ion-label>
+      </div>
+      <div *ngIf="upcoming !==''">
+        <ion-card *ngFor="let up of upcoming" (click)="openDoc(up.By,up.with,up.docId)">
+          <ion-item>
+            <ion-icon slot="start" style="color: lightseagreen;" name="calendar-outline"></ion-icon>
+            <span>
+              <ion-label>{{up.Document}}</ion-label>
+              <ion-label>Submitted on: {{up.SubmitOn | date: 'short'}}</ion-label>
+            </span>
+          </ion-item>
+        </ion-card>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'TRANSLATED'">
+      <div *ngIf="completed==''">
+        <div class="contain">
+          <ion-icon name="calendar-outline"></ion-icon>
+        </div>
+        <ion-label class="mylabel">No Documents</ion-label>
+      </div>
+
+      <div *ngIf="completed !==''">
+        <ion-card *ngFor="let up of completed">
+          <ion-item>
+
+            <ion-icon slot="start" style="color: lightseagreen;" name="calendar-outline"></ion-icon>
+            <span>
+              <ion-label>{{up.Document}}</ion-label>
+              <ion-label>Submitted on: {{up.SubmitOn | date: 'short'}}</ion-label>
+            </span>
+          </ion-item>
+        </ion-card>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'REJECTED'">
+      <div *ngIf="canceled==''">
+        <div class="contain">
+          <ion-icon name="calendar-outline"></ion-icon>
+        </div>
+        <ion-label class="mylabel">No Documents</ion-label>
+      </div>
+      <div *ngIf="canceled !==''">
+        <ion-card *ngFor="let up of canceled">
+          <ion-item>
+            <ion-icon slot="start" style="color: lightseagreen;" name="calendar-outline"></ion-icon>
+            <span>
+              <ion-label>{{up.Document}}</ion-label>
+              <ion-label>Submitted on: {{up.SubmitOn | date: 'short'}}</ion-label>
+            </span>
+          </ion-item>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div padding *ngIf="help">
+    <ion-segment [(ngModel)]="helpp" class="Segment">
+      <ion-segment-button class="segbtn" value="PENDING">
+        BOOKED
+      </ion-segment-button>
+      <ion-segment-button class="segbtn" value="TRANSLATED">
+        TRANSLATED
+      </ion-segment-button>
+      <ion-segment-button class="segbtn" value="REJECTED">
+        REJECTED
+      </ion-segment-button>
+
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="helpp" *ngIf="help">
+    <div *ngSwitchCase="'PENDING'">
+      <div *ngIf="upcoming==''">
+        <div class="contain">
+          <ion-icon name="calendar-outline"></ion-icon>
+        </div>
+        <ion-label class="mylabel">No Documents</ion-label>
+      </div>
+
+      <div *ngIf="upcoming !==''">
+        <ion-card *ngFor="let up of upcoming" (click)="openMyDoc(up.By,up.with,up.docId)">
+          <ion-item>
+            <ion-icon slot="start" style="color: lightseagreen;" name="calendar-outline"></ion-icon>
+            <span>
+              <ion-label>{{up.Document}}</ion-label>
+              <ion-label>Submitted on: {{up.SubmitOn | date: 'short'}}</ion-label>
+             <div *ngIf="up.Status=='Pending'">
+              <ion-label style="color:blue">Pending</ion-label>
+             </div>
+             <div *ngIf="up.Status=='Document Reviewed'">
+              <ion-label style="color:lightseagreen">Document Reviewed</ion-label>
+             </div>
+
+             <div *ngIf="up.Status=='Accepted'">
+              <ion-label style="color:green">Accepted</ion-label>
+             </div>
+             
+            </span>
+          </ion-item>
+        </ion-card>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'TRANSLATED'">
+      <div *ngIf="completed==''">
+        <div class="contain">
+          <ion-icon name="calendar-outline"></ion-icon>
+
+        </div>
+        <ion-label class="mylabel">No Documents</ion-label>
+      </div>
+      <div *ngIf="completed !==''">
+        <ion-card *ngFor="let up of completed">
+          <ion-item>
+            <ion-icon slot="start" style="color: lightseagreen;" name="calendar-outline"></ion-icon>
+            <span>
+              <ion-label>{{up.Document}}</ion-label>
+              <ion-label>Submitted on: {{up.SubmitOn | date: 'short'}}</ion-label>
+            </span>
+          </ion-item>
+        </ion-card>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'REJECTED'">
+      <div *ngIf="canceled==''">
+        <div class="contain">
+          <ion-icon name="calendar-outline"></ion-icon>
+        </div>
+        <ion-label class="mylabel">No Documents</ion-label>
+      </div>
+      <div *ngIf="canceled !==''">
+        <ion-card *ngFor="let up of canceled">
+          <ion-item>
+            <ion-icon slot="start" style="color: lightseagreen;" name="calendar-outline"></ion-icon>
+            <span>
+              <ion-label>{{up.Document}}</ion-label>
+              <ion-label>Submitted on: {{up.SubmitOn | date: 'short'}}</ion-label>
+              <div *ngIf="up.Status=='Rejected'">
+                <ion-label style="color:red"> Rejected</ion-label>
+               </div>
+            </span>
+          </ion-item>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+</ion-content>

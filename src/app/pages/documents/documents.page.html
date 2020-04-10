@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="navbarColor">
+    <ion-title>Documents and Price</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <p class="para">Select the Document and set your price per document</p>
+     </ion-item>
+
+  <ion-list >
+  <ion-item *ngFor="let doc of documents" (click)="docdetail(doc.Document)" detail>
+<ion-label>{{doc.Document}}</ion-label>
+  
+</ion-item>
+</ion-list>
+
+
+</ion-content>

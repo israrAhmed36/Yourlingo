@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar color="navbarColor">
+    <ion-buttons slot="start">
+      <ion-button (click)="prev()"><ion-icon slot="start" name="arrow-back"></ion-icon> </ion-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding" color="ion-content" scroll-y="false">
+
+  <ion-slides pager #theSlides [options]="{allowTouchMove:false}">
+   
+  
+    <ion-slide *ngIf="getvalue==='NeedHelp'"> 
+      <div>
+        <img class="myimg"  src="https://firebasestorage.googleapis.com/v0/b/yourlingo-97885.appspot.com/o/LogoMakr_9wNnWl.png?alt=media&token=80400a6b-0ff8-4faf-9e85-37f25b78cdd4"> 
+      </div>
+     
+     <ion-card >
+      <ion-item>
+        <ion-input placeholder="FirstName" type="text" [(ngModel)]="fname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="LastName" type="text" [(ngModel)]="lname"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-select placeholder="Gender" [(ngModel)]="gender">
+          <ion-select-option value="f">Female</ion-select-option>
+          <ion-select-option value="m">Male</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item >
+        <ion-input placeholder="Enter Phone Number" type="number" [(ngModel)]="phoneNum"></ion-input>
+      </ion-item>
+     </ion-card>
+     <ion-button expand="full"  shape="round" class="btn" (click)="swipeNext(theSlides)">NEXT</ion-button>
+  
+    </ion-slide>
+
+ <ion-slide *ngIf="getvalue==='CanHelp'">
+  <div>
+    <img class="myimg"  src="https://firebasestorage.googleapis.com/v0/b/yourlingo-97885.appspot.com/o/LogoMakr_9wNnWl.png?alt=media&token=80400a6b-0ff8-4faf-9e85-37f25b78cdd4"> 
+  </div>
+ 
+     <ion-card >
+
+      <ion-item>
+        <ion-input placeholder="FirstName" [(ngModel)]="fname"></ion-input>
+      </ion-item>
+       
+      <ion-item>
+        <ion-input placeholder="LastName" [(ngModel)]="lname"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Gender</ion-label>
+        <ion-select placeholder="Gender" [(ngModel)]="gender">
+          <ion-select-option value="Female">Female</ion-select-option>
+          <ion-select-option value="Male">Male</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item >
+        <ion-input placeholder="Enter Phone Number" type="number" maxlength="8" [(ngModel)]="phoneNum"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input placeholder="Education" type="text"  [(ngModel)]="Education"></ion-input>
+
+      </ion-item>
+
+
+    </ion-card>
+  
+      <ion-button expand="full" shape="round"  class="btn" (click)="swipeNext(theSlides)">NEXT</ion-button>
+
+    </ion-slide>
+
+    <ion-slide *ngIf="getvalue==='CanHelp'">
+     <ion-label>Choose the Language you can translate</ion-label>
+        <ion-list>
+          <ion-item *ngFor=" let lang of languagelist | async">
+            <ion-label>{{lang.lang}}</ion-label>
+            <ion-checkbox slot="end"  (ionChange)="add(lang.lang,$event)" [(ngModel)]="lang.checkitem"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+    <ion-button expand="full" shape="round"  class="btn" (click)="swipeNext(theSlides)">NEXT</ion-button>
+
+    </ion-slide>
+ 
+
+
+
+    
+    <ion-slide *ngIf="getvalue==='CanHelp'">
+      <div>
+        <img class="myimg" src="https://firebasestorage.googleapis.com/v0/b/yourlingo-97885.appspot.com/o/LogoMakr_9NFBuf.png?alt=media&token=845c66d4-1fc4-406a-b530-2fc65e42005f">
+      </div>
+      <ion-label class="labell">TYPES OF SERVICE</ion-label>
+      <ion-radio-group [(ngModel)]="services">
+     
+        <ion-item>
+          <ion-label>PROFESSIONAL</ion-label>
+          <ion-radio slot="end" value="Professional"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>NON PROFESSIONAL</ion-label>
+          <ion-radio slot="end" value="NonProfessional"></ion-radio>
+        </ion-item> 
+       
+       </ion-radio-group>
+    
+      
+    <ion-button expand="full" shape="round" [disabled]="!services" class="btn" (click)="swipeNext(theSlides)">NEXT</ion-button>
+  </ion-slide>
+
+    <ion-slide>
+      <div>
+        <img class="myimg" src="https://firebasestorage.googleapis.com/v0/b/yourlingo-97885.appspot.com/o/LogoMakr_1Iu68j.png?alt=media&token=b2fb7dc2-55d6-4c97-9042-51ccb89c1240">
+      </div>
+  
+      <ion-card>
+        <ion-item>
+         <ion-input placeholder="Enter Email" type="text" [(ngModel)]="email"></ion-input>
+        </ion-item>
+      
+
+        <ion-item>
+         <ion-input placeholder="Enter Password" type="Password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+       
+      </ion-card>
+
+      <ion-button   type="submit" shape="round" expand="full" class="btn" [disabled]="!user.email" [disabled]="!user.password"  (click)="tryRegister()">REGISTER</ion-button>  
+    
+    </ion-slide> 
+ 
+  
+
+  </ion-slides>
+</ion-content>

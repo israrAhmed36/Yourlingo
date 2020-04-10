@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-toolbar color="navbarColor">
+    <ion-title class="mytitle">My Profile</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+<div *ngIf="user">
+  <ion-list *ngFor="let detail of mydetail" >  
+    <div class="contain" *ngIf="!detail.userPhoto">
+     <img class="myimage" src="https://firebasestorage.googleapis.com/v0/b/yourlingo-97885.appspot.com/o/profile.png?alt=media&token=15fb779a-7822-4943-a067-dba99f917c83">
+  
+    </div>
+    <div *ngIf="detail.userPhoto">
+      <img  class="myimage"  [src]="detail.userPhoto">
+     
+      </div> 
+      <span>
+<ion-item lines="none">
+ <ion-label class="p">Name:  {{detail.fname}}  {{detail.lname}}</ion-label>
+ <ion-label class="p" class="service">{{detail.Email}}</ion-label>
+</ion-item>
+<ion-item lines="none">
+<ion-label class="p">JoinedAt: {{detail.JoinedAt | date: 'yyyy/MM/dd'}}</ion-label>
+</ion-item>
+      </span>
+   </ion-list>
+</div>
+
+
+  <div *ngIf="prof || non">
+  <ion-list *ngFor="let detail of mydetail" >  
+    <ion-item>
+    <div class="contain" *ngIf="!detail.userPhoto">
+      <img class="myimage" src="https://firebasestorage.googleapis.com/v0/b/yourlingo-97885.appspot.com/o/profile.png?alt=media&token=15fb779a-7822-4943-a067-dba99f917c83">
+   
+     </div>
+     <div *ngIf="detail.userPhoto">
+       <img  class="myimage"  [src]="detail.userPhoto">
+      
+       </div> 
+      </ion-item>
+<ion-item lines="none">
+  <ion-label class="p">Name</ion-label>
+  <ion-label class="b">{{detail.fname}}  {{detail.lname}} </ion-label>
+</ion-item>
+
+<ion-item lines="none">
+  <ion-label class="p" >Service</ion-label>
+  <ion-label class="b" class="service">{{detail.ServiceType}}</ion-label>
+</ion-item>
+
+<ion-item lines="none">
+<ion-label class="p">Joined At </ion-label>
+<ion-label class="b">{{detail.JoinedAt | date: 'yyyy/MM/dd'}}</ion-label>
+</ion-item>
+
+<ion-item lines="none">
+<ion-label class="p">Education  </ion-label>
+<ion-label class="b">{{detail.Education}}</ion-label>
+</ion-item>
+       
+    </ion-list>
+  </div>
+
+
+
+<div padding *ngIf="prof">
+  <ion-segment [(ngModel)]="type" class="Segment">
+    <ion-segment-button class="segbtn" value="Overview" (click)="aboutme()">
+   Overview 
+    </ion-segment-button>
+    <ion-segment-button class="segbtn" value="Languages">
+     Languages 
+      </ion-segment-button>
+      <ion-segment-button class="segbtn" value="Documents" (click)="documents()">
+         Documents type
+       </ion-segment-button>
+    
+  </ion-segment>
+</div>
+<div [ngSwitch]="type" *ngIf="prof">
+  <div *ngSwitchCase="'Overview'">
+    <ion-item *ngFor="let pen of about">
+    <ion-label > {{pen.aboutme}}</ion-label>
+    </ion-item>
+    </div>
+
+    <div *ngSwitchCase="'Languages'">
+      <ion-item *ngFor="let lang of mydetail">
+      <ion-label >{{lang.Languages}}</ion-label>  
+      </ion-item>
+    </div>
+
+    <div *ngSwitchCase="'Documents'">
+      <ion-list lines="full">
+      <ion-item *ngFor="let d of document" class="myitem">
+       <ion-label>{{d.name}}</ion-label>
+       <ion-label class="mylabel">{{d.price}} BD</ion-label>
+      </ion-item>
+    </ion-list>
+    </div>
+  </div>
+
+
+  <div padding *ngIf="non">
+    <ion-segment [(ngModel)]="type" class="Segment">
+      <ion-segment-button class="segbtn" value="Overview" (click)="aboutme()">
+     Overview 
+      </ion-segment-button>
+      <ion-segment-button class="segbtn" value="Languages">
+       Languages 
+        </ion-segment-button>  
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="type" *ngIf="non">
+    <div *ngSwitchCase="'Overview'">
+      <ion-item *ngFor="let pen of about">
+      <ion-label > {{pen.aboutme}}</ion-label>
+      </ion-item>
+      </div>
+  
+      <div *ngSwitchCase="'Languages'">
+        <ion-item *ngFor="let lang of mydetail">
+        <ion-label >{{lang.Languages}}</ion-label>  
+        </ion-item>
+      </div>
+
+    </div>
+</ion-content>

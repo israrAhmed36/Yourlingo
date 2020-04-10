@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="navbarColor">
+    <ion-title>User Type</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div>
+  <img class="myimg" src="https://firebasestorage.googleapis.com/v0/b/yourlingo-97885.appspot.com/o/LogoMakr_6IyKOu.png?alt=media&token=fdd660b8-4ee1-4dec-848e-88f40c40000b">
+</div>
+
+
+    <ion-radio-group [(ngModel)]="value">    
+      <ion-item>
+        <ion-label>I NEED HELP</ion-label>
+        <ion-radio slot="end" value="NeedHelp"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>I CAN HELP</ion-label>
+        <ion-radio slot="end" value="CanHelp"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <ion-button class="btn"  shape="round" [disabled]="!value" expand="full" (click)="onRegister(value)">NEXT</ion-button>
+</ion-content>
+

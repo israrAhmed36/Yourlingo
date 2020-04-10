@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="navbarColor">
+    <ion-title>My Rates</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item  class="myitems">
+  
+  <ion-label class="mylabel">Hourly Rates</ion-label>
+  <ion-select class="select" [(ngModel)]="value" value="1BD" [value]="myrates">
+    <ion-select-option value="1BD">1BD</ion-select-option>
+    <ion-select-option  value="1.5BD">1.5BD</ion-select-option>
+    <ion-select-option  value="2BD">2BD</ion-select-option>
+    <ion-select-option  value="2.5BD">2.5BD</ion-select-option>
+    <ion-select-option  value="3BD">3BD</ion-select-option>
+    <ion-select-option  value="3.5BD">3.5BD</ion-select-option>
+    <ion-select-option  value="4BD">4BD</ion-select-option>
+    <ion-select-option  value="4.5BD">4.5BD</ion-select-option>
+
+  </ion-select>
+
+ 
+</ion-item>
+<div class="labl">
+  <ion-label class="lb"> Select the price you have to set per hour</ion-label>
+</div>
+
+
+</ion-content>
+<ion-footer>
+  <ion-button shape="round" color="theme" expand="full" (click)="rates()">Save</ion-button>
+</ion-footer>

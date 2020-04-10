@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="navbarColor">
+    <ion-title style="text-align: center;">Translators</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let i of lang" color="light" (click)="detail(i.userid)" class="contain">
+<ion-list no-line>
+    <ion-item>
+      
+     <div *ngIf="!i.userimage">
+      <img class="myimage" src="https://firebasestorage.googleapis.com/v0/b/yourlingo-97885.appspot.com/o/profile.png?alt=media&token=15fb779a-7822-4943-a067-dba99f917c83">
+ </div>
+ <div *ngIf="i.userimage">
+  <img class="myimage" [src]="i.userimage">
+
+ </div>
+   <span>
+    <ion-label>  
+      <p class="name">{{i.fname}} {{i.lname}}</p> 
+    </ion-label>
+
+</span>
+     </ion-item>
+  
+    </ion-list>
+    </div>
+
+   
+</ion-content>

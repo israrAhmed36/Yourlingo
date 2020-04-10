@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="navbarColor">
+    <ion-title>About Me</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+<ion-item>
+
+     
+
+      <ion-textarea  rows="8" cols="20" [(ngModel)]="Aboutme" placeholder="Personalize your profile with a description about yourself" autosize="true"></ion-textarea>
+</ion-item>
+</ion-content>
+<ion-footer>
+  <ion-button expand="full" shape="round" color="theme" (click)="aboutme()">Save</ion-button>
+</ion-footer>

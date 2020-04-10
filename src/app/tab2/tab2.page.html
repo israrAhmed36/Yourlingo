@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="navbarColor">
+    <ion-title>
+   Chats
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let c of Me">
+      {{c.text}}
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="navbarColor">
+    <ion-title>chatlist</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor=" let lang of languagelist | async">
+    <ion-label>{{lang.lang}}</ion-label>
+    <ion-checkbox slot="end"  (ionChange)="add(lang.lang,$event)" [(ngModel)]="lang.checkitem"></ion-checkbox>
+  </ion-item>
+  <ion-item *ngFor=" let lang of notselected ">
+    <ion-label>{{lang.lang}}</ion-label>
+    <ion-checkbox slot="end"  (ionChange)="add(lang.lang,$event)" [(ngModel)]="lang.checkitem"></ion-checkbox>
+  </ion-item>
+</ion-content>

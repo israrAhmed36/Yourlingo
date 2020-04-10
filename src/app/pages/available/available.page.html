@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar color="navbarColor">
+    <ion-title>Weekly Schedule</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label style="font-weight: bold; text-align: center;text-emphasis: none;font-size: large;">My Schedule</ion-label>
+  </ion-item>
+
+  
+<div>
+<ion-item *ngIf="sundayadd == false">
+  <ion-row>
+    <ion-col>
+      <ion-label class="mylabel">Sunday</ion-label>
+      <p>Set your availablity</p>
+    </ion-col>
+  </ion-row>
+  <ion-icon slot="end" name="add-circle-outline" (click)=editSunday()></ion-icon>
+</ion-item>
+
+
+<ion-item *ngIf="sundayadd == true">
+  <ion-row>
+    <ion-col>
+      <ion-label class="mylabel">Sunday</ion-label>     
+        <div *ngFor="let sun of sunday">{{sun.start | date: 'HH:mm'}} - {{sun.end | date: 'HH:mm'}}</div>     
+    </ion-col>
+  </ion-row>
+  <ion-icon slot="end" name="create-outline" (click)="editSunday()"></ion-icon>
+</ion-item>
+
+</div>
+
+<div>
+<ion-item *ngIf="mondayadd == false"> 
+  <ion-row>
+    <ion-col>
+      <ion-label class="mylabel">Monday</ion-label>
+      <p>Set your availablity</p>
+    </ion-col>
+  </ion-row>
+  <ion-icon slot="end" name="add-circle-outline"  (click)=editMonday()></ion-icon>
+</ion-item>
+
+<ion-item *ngIf="mondayadd == true">
+  <ion-row>
+    <ion-col>
+      <ion-label class="mylabel">Monday</ion-label>     
+        <div *ngFor="let mon of monday">{{mon.start | date: 'HH:mm'}} - {{mon.end | date: 'HH:mm'}}</div>     
+    </ion-col>
+  </ion-row>
+  <ion-icon slot="end" name="create-outline" (click)="editMonday()"></ion-icon>
+</ion-item>
+</div>
+
+<ion-item *ngIf="tuesdayadd == false">
+  <ion-row>
+    <ion-col>
+      <ion-label class="mylabel">Tuesday</ion-label>
+      <p>Set your availablity</p>
+    </ion-col>
+  </ion-row>
+  <ion-icon slot="end" name="add-circle-outline"  (click)=editTuesday()></ion-icon>
+</ion-item>
+
+<ion-item *ngIf="tuesdayadd === true">
+  <ion-row>
+    <ion-col>
+      <ion-label class="mylabel">Tuesday</ion-label>     
+        <div *ngFor="let tue of tuesday">{{tue.start | date: 'HH:mm'}} - {{tue.end | date: 'HH:mm'}}</div>     
+    </ion-col>
+  </ion-row>
+  <ion-icon slot="end" name="create-outline" (click)="editTuesday()"></ion-icon>
+</ion-item>
+
+
+<ion-item *ngIf="wednesdayadd === false">
+  
+  <ion-row>
+    <ion-col>
+      <ion-label class="mylabel">Wednesday</ion-label>
+      <p>Set your availablity</p>
+    </ion-col>
+  </ion-row>
+  <ion-icon slot="end" name="add-circle-outline"  (click)=editWednesday()></ion-icon>
+</ion-item>
+
+<ion-item *ngIf="wednesdayadd === true">
+  <ion-row>
+    <ion-col>
+      <ion-label class="mylabel">Wednesday</ion-label>     
+        <div *ngFor="let wed of wednesday">{{wed.start | date: 'HH:mm'}} - {{wed.end | date: 'HH:mm'}}</div>     
+    </ion-col>
+  </ion-row>
+  <ion-icon slot="end" name="create-outline" (click)="editwednesday()"></ion-icon>
+</ion-item>
+
+
+<ion-item *ngIf="thursdayadd === false">
+  
+  <ion-row>
+    <ion-col>
+      <p value="Thursday" class="mylabel">Thursday</p>
+      <p>Set your availablity</p>
+    </ion-col>
+  </ion-row>
+  <ion-icon slot="end" name="add-circle-outline"  (click)=editThursday()></ion-icon>
+</ion-item>
+
+
+<ion-item *ngIf="thursdayadd === true">
+  <ion-row>
+    <ion-col>
+      <ion-label class="mylabel">Thursday</ion-label>     
+        <div *ngFor="let thur of thursday">{{thur.start | date: 'HH:mm'}} - {{thur.end | date: 'HH:mm'}}</div>     
+    </ion-col>
+  </ion-row>
+  <ion-icon slot="end" name="create-outline" (click)="editThursday()"></ion-icon>
+</ion-item>
+
+<ion-item *ngIf="fridayadd === false">
+ 
+  <ion-row>
+    <ion-col>
+      <ion-label class="mylabel">Friday</ion-label>
+      <p>Set your availablity</p>
+    </ion-col>
+  </ion-row>
+  <ion-icon slot="end" name="add-circle-outline"  (click)=editFriday()></ion-icon>
+</ion-item>
+
+<ion-item *ngIf="fridayadd === true">
+  <ion-row>
+    <ion-col>
+      <ion-label class="mylabel">Friday</ion-label>     
+        <div *ngFor="let fri of friday">{{fri.start | date: 'HH:mm'}} - {{fri.end | date: 'HH:mm'}}</div>     
+    </ion-col>
+  </ion-row>
+  <ion-icon slot="end" name="create-outline" (click)="editFriday()"></ion-icon>
+</ion-item>
+</ion-content>
